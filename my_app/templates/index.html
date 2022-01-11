@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <!-- <img src="" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt=""> -->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
     <title><h1>Programacion de la linea</h1></title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-datepicker.min.css')}}">
-    
-    <script src="{{ url_for('static', filename='js/jquery-3.5.1.slim.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap-datepicker.min.js') }}"></script>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/gijgo.min.css')}}"> -->
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-
-
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,7 +14,7 @@
         <a class="navbar-brand" href="/">Ingreso de Asistencia</a>
 
     </nav>
-    <form class="row g-3 container" method="post" action="/">
+    <form class="row container" method="post" action="/">
         
         <label for="linea" class="col-auto col-form-label">Linea</label>
         
@@ -55,27 +43,26 @@
             <label for="t3">T3</label><br>
             
           </div>
-        <div class="row g-3 container">
-            <label for="label" class="col-auto col-form-label">introducir los datos</label>
-            <textarea class="form-control col-sm-7"  rows="10" aria-label="datos_raw"></textarea>
+        <div class="form-outline ">
+            <label for="label" class="form-label">Introducir los datos</label>
+            <textarea class="form-control " style="border:solid 1px rgb(228, 228, 231) " rows="10" id="label"></textarea>
         </div>
-        <input type="submit" value="Enviar Datos" name="action1"/>
+        
+        <button type="submit" value="Enviar Datos" class="btn btn-primary mb-3" name="action1">ENVIAR DATOS</button>
+        
+        <script src="{{ url_for('static', filename='js/jquery-3.5.1.slim.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap-datepicker.min.js') }}"></script>
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/gijgo.min.css')}}"> -->
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        
         <script>
             $(document).ready(function(){
                 $('#dp3').datepicker({});
-                var selectedText = "2";
             });
-            
         </script>
         
     </form>
-
-    
-    
-        
-    
-
-
-
 </body>
 </html>
