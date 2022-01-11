@@ -22,7 +22,8 @@ def index():
             else:
                 hora_extra = request.form['hora_extra']
             turno=request.form['fav_turno']
-            print(linea, hora_extra, fecha,turno)
+            dato= request.form['datos']
+            print(linea, hora_extra, fecha,turno, dato)
             return 'hecho' # do something
     
     return render_template('index.html')

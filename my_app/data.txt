@@ -1,0 +1,44 @@
+1,Anterior,Rack 01,Premontaje,SKILL 1,41094
+2,Anterior,Rack 02,Premontaje,SKILL 1,41612
+3,Anterior,Rack 03,Premontaje,SKILL 1,41231
+4,Anterior,Rack 04,Premontaje,SKILL 1,41010
+5,Anterior,Rack 05,Premontaje,SKILL 1,41582
+6,Anterior,Rack 06,Premontaje,SKILL 1,48619
+9,Anterior,Rack 09,Premontaje,SKILL 1,41456
+9,Anterior,Rack 09,Premontaje,SKILL 1,41506
+10,Anterior,Rack 10,Premontaje,SKILL 1,41071
+11,Anterior,Rack 11,Premontaje,SKILL 1,48308
+12,Anterior,Rack 12,Premontaje,SKILL 1,41257
+13,Anterior,Puesto 01,Conveyor 01 ' Ruteo,SKILL 1,48925
+14,Anterior,Puesto 02,Conveyor 02 ' Ruteo,SKILL 1,48085
+16,Anterior,Puesto 04,Conveyor 04 ' Ruteo,SKILL 1,41085
+18,Anterior,Puesto 06,Conveyor 06 ' Ruteo,SKILL 1,48302
+19,Anterior,Puesto 07,Conveyor 07 ' Ruteo,SKILL 1,48927
+20,Anterior,Puesto 08,Conveyor 08 ' Ruteo,SKILL 1,40965
+23,Anterior,Puesto 11,Conveyor 11 ' Ruteo,SKILL 1,48939
+24,Anterior,Puesto 12,Conveyor 12 ' Encintado,SKILL 1,48618
+25,Anterior,Puesto 13,Conveyor 13 ' Encintado,SKILL 1,48532
+26,Anterior,Puesto 14,Conveyor 14 ' Encintado,SKILL 1,47582
+27,Anterior,Puesto 15,Conveyor 15 ' Encintado,SKILL 1,47588
+28,Anterior,Puesto 16,Conveyor 16 ' Encintado,SKILL 1,41503
+29,Anterior,Puesto 17,Conveyor 17 ' Encintado,SKILL 1,48625
+30,Anterior,Puesto 18,Conveyor 18 ' Encintado,SKILL 1,41596
+31,Anterior,Puesto 19,Conveyor 19 - Encintado,SKILL 1,41072
+32,Anterior,Puesto 20,Conveyor 20 ' Encintado,SKILL 1,41494
+33,Anterior,Puesto 21,Conveyor 21 ' Encintado,SKILL 1,48930
+34,Anterior,Puesto 22,Conveyor 22 ' Encintado,SKILL 1,48935
+35,Anterior,Puesto 23,Conveyor 23 ' Encintado,SKILL 1,48307
+36,Anterior,Puesto 24,Conveyor 24 ' Encintado,SKILL 1,48937
+37,Anterior,Mesa de Clips,Colocacion y Test de Clips 1,SKILL 1,48081
+38,Anterior,Mesa de Clips,Colocacion y Test de Clips 2,SKILL 1,48775
+39,Anterior,Mesa de Clips,Colocacion y Test de Clips 3,SKILL 1,41480
+40,Anterior,Mesa de Clips,Colocacion y Test de Clips 4,SKILL 1,48615
+41,Anterior,Mesa de Test Electrico,Test Electrico 1,SKILL 1,41489
+42,Anterior,Mesa de Test Electrico,Test Electrico 2,SKILL 1,41475
+43,Anterior,Rack 13,Colocacion de Fusibles,SKILL 1,48933
+44,Anterior,Rack 14,Colocacion de Fusibles y Rels en Prensa,SKILL 1,41607
+45,Anterior,Puesto Torque y Visin,Torque y Vision Test,SKILL 1,41486
+46,Anterior,Puesto CARE y Embalaje,Higienizacion,SKILL 1,41253
+47,Anterior,Libre para Soporte,Operador Multifuncional,SKILL 1,41592
+48,Anterior,Libre para Soporte,Operador Multifuncional,SKILL 1,41593
+49,Anterior,Lider,Lder de la Linea,SKILL 2,40955
