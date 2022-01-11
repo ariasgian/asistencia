@@ -3,6 +3,9 @@ from flask_datepicker import datepicker
 from sqlalchemy import text
 import datetime
 
+from my_app.queries import tbl_asistencia
+from my_app import db
+
 
 
 inicial = Blueprint('inicial',__name__)
@@ -28,8 +31,16 @@ def index():
     
     return render_template('index.html')
 
-@inicial.route('/test', methods=['GET', 'POST'])
+
 @inicial.route('/test')
 def test():
     
-    return render_template('index2.html')
+    p = tbl_asistencia("Anterior12121", "fecha", 1, "T50")
+    #p = fecha
+    print(p)
+    
+    db.session.add(p)
+    db.session.flush()
+    db.session.commit()
+    db.session.close()
+    return "test"

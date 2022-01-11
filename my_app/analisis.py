@@ -1,6 +1,6 @@
 import pandas as pd
 import io
-
+import os
 
 def convertir(texto):
     lineas=texto.split('\n')
@@ -29,4 +29,6 @@ text_file.close()
  
 data = io.StringIO(data_string)
 df= conv(data)
+
+file= os.getcwd()+'\\database.db'
 #linea, dominio, skill, lehgajo=convertir("1,Anterior,Rack 01,Premontaje,SKILL 1,41094")
