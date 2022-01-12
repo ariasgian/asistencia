@@ -1,16 +1,10 @@
 from flask import Blueprint, request, render_template, abort, redirect, url_for
 from flask_datepicker import datepicker
-from sqlalchemy import text
-import datetime
 
-from my_app.queries import tbl_asistencia
+from my_app.models import tbl_asistencia
 from my_app import db
 
-
-
 inicial = Blueprint('inicial',__name__)
-
-#data = tabla_prog.query.all()
 
 @inicial.route('/', methods=['GET', 'POST'])
 @inicial.route('/index')
@@ -34,13 +28,9 @@ def index():
 
 @inicial.route('/test')
 def test():
-    
-    p = tbl_asistencia("Anterior12121", "fecha", 1, "T50")
-    #p = fecha
+    p = tbl_asistencia("gian", "fecha", 1, "T50")
     print(p)
-    
     db.session.add(p)
-    db.session.flush()
     db.session.commit()
     db.session.close()
     return "test"
