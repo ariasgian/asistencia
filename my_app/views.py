@@ -20,7 +20,11 @@ def index():
                 hora_extra = request.form['hora_extra']
             turno=request.form['fav_turno']
             dato= request.form['datos']
-            print(linea, hora_extra, fecha,turno, dato)
+            p=tbl_asistencia(linea, fecha, hora_extra, turno)
+            db.session.add(p)
+            db.session.commit()
+            db.session.close()
+            print(linea, hora_extra, fecha,turno)
             return 'hecho' # do something
     
     return render_template('index.html')

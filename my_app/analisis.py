@@ -1,6 +1,7 @@
 import pandas as pd
 import io
-import os
+from sqlalchemy import create_engine
+
 
 def convertir(texto):
     lineas=texto.split('\n')
@@ -11,24 +12,17 @@ def convertir(texto):
         legajo= linea[5]
     return puesto, dominio, skill, legajo
 
-
-
-
-
-def conv(texto):
+def str_todf(data_string):
     name=['puesto', 'dominio', 'skill', 'legajo']
+    texto=io.StringIO(data_string)
     df= pd.read_csv(texto, sep=',', usecols=[2,3,4,5], names=name)
     return df
     
-text_file=open('data.txt')
-#read whole file to a string
-data_string = text_file.read()
- 
-#close file
-text_file.close()
- 
-data = io.StringIO(data_string)
-df= conv(data)
+db = create_engine('sqlite:///database.db')
 
-file= os.getcwd()+'\\database.db'
-#linea, dominio, skill, lehgajo=convertir("1,Anterior,Rack 01,Premontaje,SKILL 1,41094")
+data_raw="""1,Anterior,Rack 01,Premontaje,SKILL 1,41094
+2,Anterior,Rack 02,Premontaje,SKILL 1,41612"""
+
+df= str_todf(data_raw)
+df.to_sql('asistencia', db, if_exists='append')
+
