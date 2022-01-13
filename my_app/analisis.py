@@ -13,7 +13,6 @@ def convertir(texto):
     return puesto, dominio, skill, legajo
 
 def str_todf(data_string):
-    name=['puesto', 'dominio', 'skill', 'legajo']
     texto=io.StringIO(data_string)
     df= pd.read_csv(texto, sep=',', usecols=[2,3,4,5], names=name)
     return df

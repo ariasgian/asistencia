@@ -1,7 +1,7 @@
 from flask import Blueprint, request, render_template, abort, redirect, url_for
 from flask_datepicker import datepicker
 
-from my_app.models import tbl_asistencia
+from my_app.models import asistencias, asistencia_detalle
 from my_app import db
 
 inicial = Blueprint('inicial',__name__)
@@ -32,9 +32,15 @@ def index():
 
 @inicial.route('/test')
 def test():
-    p = tbl_asistencia("gian", "fecha", 1, "T50")
-    print(p)
-    db.session.add(p)
+    asist = asistencias("gian", "fecha12", 1, 4)
+    print(asist)
+    
+    db.session.add(asist)
+    db.session.flush()
+        
+    detalle=asistencia_detalle(asist.id_asistencia,39642, 'prueba', 'p1', 1)
+    db.session.add(detalle)
+    
     db.session.commit()
     db.session.close()
     return "test"
