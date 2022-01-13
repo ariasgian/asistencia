@@ -33,14 +33,10 @@ def index():
 @inicial.route('/test')
 def test():
     asist = asistencias("gian", "fecha12", 1, 4)
-    print(asist)
-    
-    db.session.add(asist)
-    db.session.flush()
-        
-    detalle=asistencia_detalle(asist.id_asistencia,39642, 'prueba', 'p1', 1)
+    #db.session.add(asist)
+    #db.session.flush()
+    detalle=asistencia_detalle(id= asist, legajo=39642, dominio='prueba', puesto='p1', skill=1)
     db.session.add(detalle)
-    
     db.session.commit()
     db.session.close()
     return "test"

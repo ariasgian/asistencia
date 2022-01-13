@@ -21,8 +21,7 @@ class asistencias(db.Model):
         self.hora_extra = hora_extra
         self.turno = turno
         
-    def __repr__(self):
-        return '<test %r>' % self.id_asistencia
+    
 
 class asistencia_detalle(db.Model):
     """
@@ -38,12 +37,12 @@ class asistencia_detalle(db.Model):
     dominio = db.Column(db.String(50)) 
     puesto = db.Column(db.String(50))
     skill =db.Column(db.Integer)
-    data = db.relationship('asistencias', backref = 'asistencia_detalle')
+    id = db.relationship('asistencias', backref = 'asistencia_detalle')
             
-    def __init__(self,id_asistencia,legajo,dominio,puesto,skill):
-        self.legajo = legajo
-        self.id_asistencia=id_asistencia
-        self.dominio = dominio
-        self.puesto = puesto
-        self.skill = skill
+    # def __init__(self, id_a, legajo,dominio,puesto,skill):
+    #     self.legajo = legajo
+    #     self.id_asistencia=id_a
+    #     self.dominio = dominio
+    #     self.puesto = puesto
+    #     self.skill = skill
         
