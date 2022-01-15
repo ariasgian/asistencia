@@ -1,5 +1,7 @@
 from my_app import db
+from datetime import datetime
 
+db.create_all()
 class asistencias(db.Model):
     """
     linea= strings,
@@ -10,19 +12,9 @@ class asistencias(db.Model):
     __tablename__= 'asistencia'
     id_asistencia = db.Column(db.Integer, primary_key=True)
     linea = db.Column(db.String(50))
-    fecha = db.Column(db.String(50))
-    hora_extra = db.Column(db.Integer) 
-    turno = db.Column(db.String(50))
-    
-    
-    def __init__(self, linea, fecha, hora_extra, turno):  
-        self.linea = linea
-        self.fecha = fecha
-        self.hora_extra = hora_extra
-        self.turno = turno
-        
-    
-
+    fecha = db.Column(db.DateTime)
+    hora_extra = db.Column(db.Boolean) 
+    turno = db.Column(db.Integer)
 class asistencia_detalle(db.Model):
     """
     legajo= integer,
@@ -39,10 +31,12 @@ class asistencia_detalle(db.Model):
     skill =db.Column(db.Integer)
     id = db.relationship('asistencias', backref = 'asistencia_detalle')
             
-    # def __init__(self, id_a, legajo,dominio,puesto,skill):
-    #     self.legajo = legajo
-    #     self.id_asistencia=id_a
-    #     self.dominio = dominio
-    #     self.puesto = puesto
-    #     self.skill = skill
-        
+class data_raw(db.Model):
+    id_data= db.Column(db.Integer, primary_key = True)
+    linea = db.Column(db.String(50))
+    fecha = db.Column(db.DateTime)
+    hora_extra = db.Column(db.Boolean) 
+    turno = db.Column(db.Integer)
+    data = db.Column(db.Text())
+      
+db.create_all()      
