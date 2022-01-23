@@ -1,9 +1,24 @@
 from flask import Blueprint, request, render_template, abort, redirect, url_for
 from flask_datepicker import datepicker
-
+#import pandas as pd
 from my_app.models import *
 from my_app import db
 from my_app.analisis import str_todf 
+from my_app.reques import sendResJson
+from datetime import datetime
+
+def dataToJson(dato: asistencias):
+    return {
+        'linea' : dato.linea,
+        'turno' : dato.turno,
+        'fecha' : datetime.strftime(dato.fecha,'%d/%m/%Y'),
+        'hora_extra': dato.hora_extra,
+        'legajo': dato.legajo,
+        'dominio': dato.dominio,
+        'puesto': dato.puesto,
+        'skill': dato.skill
+        
+    }
 
 inicial = Blueprint('inicial',__name__)
 
@@ -24,8 +39,8 @@ def index():
             dato= request.form['datos']
             
             #ingresa los datos de la tabla raw de respaldo
-            data=data_raw(linea=linea, fecha= fecha, hora_extra=hora_extra, turno=turno, data=dato)
-            db.session.add(data)
+            #data=data_raw(linea=linea, fecha= fecha, hora_extra=hora_extra, turno=turno, data=dato)
+            #db.session.add(data)
             
             #ingresa los datos divididos en asistencia y asistencia detalle el cual usa la funcion str_todf
             asist = asistencias(linea=linea, fecha=fecha, hora_extra=hora_extra, turno=turno) 
@@ -50,3 +65,25 @@ def test():
     db.session.commit()
     db.session.close()
     return "test"
+
+@inicial.route('/data')
+def data():
+    #df= pd.read_sql_query("select * from asistencia", db.get_engine())
+    #query=  asistencias.query.all()
+    #query=db.execute('Select * from asistencia')
+    que="""Select linea, fecha, turno, hora_extra, legajo, dominio, puesto, skill from asistencia 
+    join asistencia_detalle on asistencia.id_asistencia = asistencia_detalle.id_asistencia"""
+    
+    query=db.engine.execute(que)
+    db.session.close()
+    #print("df",df)
+    res= []
+    for dato in query:
+        #print(dato.linea)
+        #print(dato.id_asistencia)
+        print(dato)
+        res.append(dataToJson(dato))
+        print(dataToJson(dato))
+    return sendResJson(res,None, 200)
+    print(res)
+    #return "t"
