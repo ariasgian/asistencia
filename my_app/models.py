@@ -39,4 +39,4 @@ class data_raw(db.Model):
     turno = db.Column(db.Integer)
     data = db.Column(db.Text())
       
-#db.create_all()      
+db.create_all()      
