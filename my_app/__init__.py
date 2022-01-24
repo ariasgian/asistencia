@@ -4,9 +4,8 @@ import urllib
 import os
 cwd = os.getcwd()
 app = Flask(__name__)
-
-#tets
 app.secret_key = 'mysecretkey'
+
 #IP servidor PostgreSQL server lsd
 ip='localhost' 
 

@@ -1,6 +1,5 @@
 from flask import Blueprint, request, render_template, abort, redirect, url_for
-from flask_datepicker import datepicker
-#import pandas as pd
+#from flask_datepicker import datepicker
 from my_app.models import *
 from my_app import db
 from my_app.analisis import str_todf 
@@ -37,12 +36,6 @@ def index():
                 hora_extra = True
             turno=request.form['fav_turno']
             dato= request.form['datos']
-            
-            #ingresa los datos de la tabla raw de respaldo
-            #data=data_raw(linea=linea, fecha= fecha, hora_extra=hora_extra, turno=turno, data=dato)
-            #db.session.add(data)
-            
-            #ingresa los datos divididos en asistencia y asistencia detalle el cual usa la funcion str_todf
             asist = asistencias(linea=linea, fecha=fecha, hora_extra=hora_extra, turno=turno) 
             db.session.add(asist)
             db.session.commit()
@@ -58,8 +51,6 @@ def index():
 
 @inicial.route('/test')
 def test():
-    #asist = asistencias(linea="gian", fecha="2021/09/15", hora_extra=True, turno=4) 
-    #detalle=asistencia_detalle(id= asist, legajo=39642, dominio='prueba', puesto='p1', skill=1)
     data=data_raw(linea="anterior", fecha= datetime(2015, 6, 5), hora_extra=True, turno=1, data="ajdajdhjahdja, dajdhjahdj, hjahdj")
     db.session.add(data)
     db.session.commit()
@@ -68,22 +59,15 @@ def test():
 
 @inicial.route('/data')
 def data():
-    #df= pd.read_sql_query("select * from asistencia", db.get_engine())
-    #query=  asistencias.query.all()
-    #query=db.execute('Select * from asistencia')
-    que="""Select linea, fecha, turno, hora_extra, legajo, dominio, puesto, skill from asistencia 
+    query="""Select linea, fecha, turno, hora_extra, legajo, dominio, puesto, skill from asistencia 
     join asistencia_detalle on asistencia.id_asistencia = asistencia_detalle.id_asistencia"""
     
-    query=db.engine.execute(que)
+    respuesta=db.engine.execute(query)
     db.session.close()
-    #print("df",df)
-    res= []
-    for dato in query:
-        #print(dato.linea)
-        #print(dato.id_asistencia)
+    res= [] #se genera array vacio para agregar json
+    for dato in respuesta:
         print(dato)
         res.append(dataToJson(dato))
         print(dataToJson(dato))
-    return sendResJson(res,None, 200)
+    return sendResJson(res,None, 200) #el json genera forma de dict 
     print(res)
-    #return "t"
